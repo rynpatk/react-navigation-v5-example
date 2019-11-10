@@ -53,7 +53,7 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export const App = () => {
-  const [thirdTabName, setThirdTabName] = useState('Tab 🦅');
+  const [showThirdTab, setShowThirdTab] = useState(false);
 
   // new naviagtion prop "route"!
   const MockStackScreen = ({ navigation, route }) => {
@@ -97,11 +97,11 @@ export const App = () => {
         <TouchableOpacity
           style={styles.navButton}
           onPress={() => {
-            setThirdTabName('Tab 🍋');
+            // setShowThirdTab(true);
             navigation.navigate('Home');
           }}
         >
-          <Text style={styles.navButtonText}>Change Third Tab Name</Text>
+          <Text style={styles.navButtonText}>Go Home</Text>
         </TouchableOpacity>
       </View>
     );
@@ -122,7 +122,7 @@ export const App = () => {
       >
         <Tab.Screen name="Tab 🔥" component={MockTabScreen} />
         <Tab.Screen name="Tab ⛈️" component={MockTabScreen} />
-        <Tab.Screen name={thirdTabName} component={MockTabScreen} />
+        {<Tab.Screen name="Tab 🦅" component={MockTabScreen} />}
       </Tab.Navigator>
     );
   };
